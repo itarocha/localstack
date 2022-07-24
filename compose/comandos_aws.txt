@@ -1,0 +1,8 @@
+aws --endpoint http://localhost:4566 s3api create-bucket --bucket my-bucket
+aws --endpoint http://localhost:4566 s3api list-buckets
+
+cd bucket_files
+aws --endpoint http://localhost:4566 s3 cp lote01.csv s3://my-bucket
+aws --endpoint http://localhost:4566 s3 cp . s3://my-bucket --recursive --exclude "lote01.csv"
+aws --endpoint http://localhost:4566 s3 ls s3://my-bucket
+
