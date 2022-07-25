@@ -11,11 +11,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -78,6 +77,34 @@ public class AwsS3Service implements ProcessadorArquivoUseCase {
         }
         System.out.println();
     }
+
+    private List<String[]> readData() throws IOException {
+        int count = 0;
+        String file = "bank-Detail.txt";
+        List<String[]> content = new ArrayList<>();
+        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line = "";
+            while ((line = br.readLine()) != null) {
+                content.add(line.split(","));
+            }
+        } catch (FileNotFoundException e) {
+            //Some error logging
+        }
+        return content;
+    }
+
+    private void outraManeiraDeLer() throws IOException {
+        String COMMA_DELIMITER = ";";
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("book.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        }
+    }
+
     public String uploadArquivo(MultipartFile arquivo) {
         String key = RandomStringUtils.randomAlphanumeric(50);
         try {
