@@ -6,3 +6,15 @@ aws --endpoint http://localhost:4566 s3 cp lote01.csv s3://my-bucket
 aws --endpoint http://localhost:4566 s3 cp . s3://my-bucket --recursive --exclude "lote01.csv"
 aws --endpoint http://localhost:4566 s3 ls s3://my-bucket
 
+
+aws --endpoint http://localhost:4566 sqs create-queue --queue-name my-queue
+aws --endpoint http://localhost:4566 sqs list-queues
+aws --endpoint http://localhost:4566 sqs get-queue-attributes --queue-url http://localhost:4566/000000000000/my-queue
+aws --endpoint http://localhost:4566 sqs send-message --queue-url http://localhost:4566/000000000000/my-queue --message-body "{\"chave\" : \"valor\"}"
+aws --endpoint http://localhost:4566 sqs receive-message --queue-url http://localhost:4566/000000000000/my-queue
+
+
+
+
+
+

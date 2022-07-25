@@ -19,13 +19,13 @@ public class AWSS3LocalConfig {
     @Value("${config.aws.region}")
     private String region;
 
-    @Value("${config.aws.s3.url}")
+    @Value("${config.aws.url}")
     private String s3EndpointUrl;
 
-    @Value("${config.aws.s3.access-key}")
+    @Value("${config.aws.access-key}")
     private String accessKey;
 
-    @Value("${config.aws.s3.secret-key}")
+    @Value("${config.aws.secret-key}")
     private String secretKey;
 
     @Bean
