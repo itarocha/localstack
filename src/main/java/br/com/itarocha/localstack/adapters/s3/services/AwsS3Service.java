@@ -11,7 +11,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.time.ZoneId;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,8 +45,39 @@ public class AwsS3Service implements ProcessadorArquivoUseCase {
         for (S3ObjectSummary os: objectListing.getObjectSummaries()){
             log.info("Arquivo do bucket {}: {}", bucketName, os.getKey());
         }
+
+        listarArquivos().stream().findFirst().ifPresent(a -> lerConteudoArquivo(a.getBucketName(), a.getKey()));
     }
 
+    private void lerConteudoArquivo(String bucketName, String key) {
+        S3Object fullObject = null, objectPortion = null, headerOverrideObject = null;
+        try {
+            fullObject = amazonS3.getObject(new GetObjectRequest(bucketName, key));
+            log.info("BucketName = [{}] FileName = [{}] Content-Type: [{}]",bucketName, key, fullObject.getObjectMetadata().getContentType());
+            log.info("Conteúdo do arquivo:");
+            displayTextInputStream(fullObject.getObjectContent());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (fullObject != null) {
+                try {
+                    fullObject.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+
+    private static void displayTextInputStream(InputStream input) throws IOException {
+        // Read the text input stream one line at a time and display each line.
+        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+        System.out.println();
+    }
     public String uploadArquivo(MultipartFile arquivo) {
         String key = RandomStringUtils.randomAlphanumeric(50);
         try {
@@ -100,4 +134,17 @@ public class AwsS3Service implements ProcessadorArquivoUseCase {
         }
     }
 
+//    final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+//try {
+//        s3.deleteObject(bucket_name, object_key);
+//    } catch (AmazonServiceException e) {
+//        System.err.println(e.getErrorMessage());
+//        System.exit(1);
+//    }
+
+//    AmazonS3 s3Client = new AmazonS3Client(new ProfileCredentialsProvider());
+//    S3Object object = s3Client.getObject(new GetObjectRequest(bucketName, key));
+//    InputStream objectData = object.getObjectContent();
+//// Process the objectData stream.
+//objectData.close();
 }

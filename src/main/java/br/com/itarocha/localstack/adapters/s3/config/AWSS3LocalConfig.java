@@ -28,7 +28,6 @@ public class AWSS3LocalConfig {
     @Value("${config.aws.s3.secret-key}")
     private String secretKey;
 
-
     @Bean
     public AmazonS3 amazonS3(){
         return AmazonS3ClientBuilder.standard()
