@@ -24,7 +24,7 @@ public class AwsS3Service implements ProcessadorArquivoUseCase {
 
     private final AmazonS3 amazonS3;
 
-    @Value("${config.aws.s3.bucket-name}")
+    @Value("${cloud.aws.s3.bucket-name}")
     private String bucketName;
 
     //private static final String BUCKET_NAME = "my-other-bucket";

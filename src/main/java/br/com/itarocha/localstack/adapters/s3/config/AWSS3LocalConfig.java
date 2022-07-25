@@ -12,20 +12,20 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-//@Profile("local")
+@Profile("local")
 @Data
 public class AWSS3LocalConfig {
 
-    @Value("${config.aws.region}")
+    @Value("${cloud.aws.region.static}")
     private String region;
 
-    @Value("${config.aws.url}")
+    @Value("${cloud.aws.url}")
     private String s3EndpointUrl;
 
-    @Value("${config.aws.access-key}")
+    @Value("${cloud.aws.credentials.access-key}")
     private String accessKey;
 
-    @Value("${config.aws.secret-key}")
+    @Value("${cloud.aws.credentials.secret-key}")
     private String secretKey;
 
     @Bean

@@ -15,7 +15,7 @@ import java.util.Map;
 @Component
 public class AwsSQSService {
 
-    @SqsListener(value = "${cloud.aws.queue.name}", deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS)
+    @SqsListener(value = "${cloud.aws.sqs.queue-name}", deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS)
     public void receiveMessage(String message) {
         log.info("SQS Message Received : {}", message);
     }
