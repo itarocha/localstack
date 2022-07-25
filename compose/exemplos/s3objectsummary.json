@@ -1,0 +1,86 @@
+[
+  {
+    "bucketName": "my-bucket",
+    "key": "2kX5NVuWidcME4P76YjXe21idQwogpgiJWZK76ESucQuDV9Qru",
+    "size": 471,
+    "lastModified": "2022-07-24T17:42:17.000+00:00",
+    "storageClass": "STANDARD",
+    "owner": {
+      "displayName": "webfile",
+      "id": "75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a"
+    },
+    "etag": "6959d6da0bc1ca0ee3fdf76acad4a0a9"
+  },
+  {
+    "bucketName": "my-bucket",
+    "key": "5s5Mn756kPTJnDeed0d2CpNCWdbatmfPuWzO8v5AmdXVp07eoY",
+    "size": 471,
+    "lastModified": "2022-07-24T17:46:55.000+00:00",
+    "storageClass": "STANDARD",
+    "owner": {
+      "displayName": "webfile",
+      "id": "75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a"
+    },
+    "etag": "6959d6da0bc1ca0ee3fdf76acad4a0a9"
+  },
+  {
+    "bucketName": "my-bucket",
+    "key": "lote01.csv",
+    "size": 471,
+    "lastModified": "2022-07-24T16:22:41.000+00:00",
+    "storageClass": "STANDARD",
+    "owner": {
+      "displayName": "webfile",
+      "id": "75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a"
+    },
+    "etag": "6959d6da0bc1ca0ee3fdf76acad4a0a9"
+  },
+  {
+    "bucketName": "my-bucket",
+    "key": "lote02.csv",
+    "size": 471,
+    "lastModified": "2022-07-24T16:24:00.000+00:00",
+    "storageClass": "STANDARD",
+    "owner": {
+      "displayName": "webfile",
+      "id": "75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a"
+    },
+    "etag": "6959d6da0bc1ca0ee3fdf76acad4a0a9"
+  },
+  {
+    "bucketName": "my-bucket",
+    "key": "lote03.csv",
+    "size": 471,
+    "lastModified": "2022-07-24T16:24:00.000+00:00",
+    "storageClass": "STANDARD",
+    "owner": {
+      "displayName": "webfile",
+      "id": "75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a"
+    },
+    "etag": "6959d6da0bc1ca0ee3fdf76acad4a0a9"
+  },
+  {
+    "bucketName": "my-bucket",
+    "key": "lote04.csv",
+    "size": 471,
+    "lastModified": "2022-07-24T16:24:00.000+00:00",
+    "storageClass": "STANDARD",
+    "owner": {
+      "displayName": "webfile",
+      "id": "75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a"
+    },
+    "etag": "6959d6da0bc1ca0ee3fdf76acad4a0a9"
+  },
+  {
+    "bucketName": "my-bucket",
+    "key": "lote05.csv",
+    "size": 471,
+    "lastModified": "2022-07-24T16:24:00.000+00:00",
+    "storageClass": "STANDARD",
+    "owner": {
+      "displayName": "webfile",
+      "id": "75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a"
+    },
+    "etag": "6959d6da0bc1ca0ee3fdf76acad4a0a9"
+  }
+]
